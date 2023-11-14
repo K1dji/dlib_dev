@@ -18,13 +18,13 @@ class VideoProcessor:
 
     # This below mehtod will draw all those points which are from 0 to 67 on face one by one.
     def drawPoints(image, faceLandmarks, startpoint, endpoint, isClosed=False):
-     points = []
-    for i in range(startpoint, endpoint+1):
-        point = [faceLandmarks.part(i).x, faceLandmarks.part(i).y]
-        points.append(point)
+        points = []
+        for i in range(startpoint, endpoint+1):
+            point = [faceLandmarks.part(i).x, faceLandmarks.part(i).y]
+            points.append(point)
 
-    points = np.array(points, dtype=np.int32)
-    cv2.polylines(image, [points], isClosed, (255, 200, 0), thickness=2, lineType=cv2.LINE_8)
+        points = np.array(points, dtype=np.int32)
+        cv2.polylines(image, [points], isClosed, (255, 200, 0), thickness=2, lineType=cv2.LINE_8)
     
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
@@ -39,7 +39,7 @@ class VideoProcessor:
 
         	#for(i, y) in s:
         	#cv2.circle(img, (i,y), 2, (0, 255, 0), -1)
-            # count number of landmarks we actually detected on image
+            #count number of landmarks we actually detected on image
 
         if i==0:
                 print("Total number of face landmarks detected ",len(s_.parts()))
